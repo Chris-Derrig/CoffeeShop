@@ -1,0 +1,13 @@
+﻿body {
+    background-image: url("https://cdn.pixabay.com/photo/2015/11/07/11/16/coffee-1030971_960_720.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    margin: 0;
+}
+
+#container-background {
+    
+}
