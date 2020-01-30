@@ -5,43 +5,34 @@
 }
 
 <h1>Registration</h1>
-<div class="modal fade" id="PasswordModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <p>This is a small modal.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 
-<form asp-controller="Home" asp-action="Welcome">
+
+<form asp-controller="Home" asp-action="Welcome" onsubmit="return Validate(); return PhoneCreate()">
     <fieldset>
+
         <div class=" form-group col-sm-4">
             <label>FIRST NAME</label>
-            <input class="form-control shadow-sm col-xs-3" type="text" name="First_Name" placeholder="First Name" />
+            <input class="form-control shadow-sm col-xs-3" type="text" name="FirstName" placeholder="First Name" required />
         </div>
 
         <div class=" form-group col-sm-4">
             <label>LAST NAME</label>
-            <input class="form-control shadow-sm col-xs-3" type="text" name="Last_Name" placeholder="Last Name" />
+            <input class="form-control shadow-sm col-xs-3" type="text" name="LastName" placeholder="Last Name" required />
         </div>
 
         <div class=" form-group col-sm-4">
             <label>EMAIL</label>
-            <input class="form-control shadow-sm col-xs-3" type="email" name="email" placeholder="Email" />
+            <input class="form-control shadow-sm col-xs-3" type="Email" name="Email" placeholder="Email" required />
         </div>
 
         <div class=" form-group col-sm-4">
             <label>PASSWORD</label>
-            <input class="form-control shadow-sm col-xs-3" type="password" name="password" placeholder="Password" />
+            <input class="form-control shadow-sm col-xs-3" type="password" name="password" id="password" placeholder="Password" required />
+        </div>
+
+        <div class=" form-group col-sm-4">
+            <label>RE-ENTER PASSWORD</label>
+            <input class="form-control shadow-sm col-xs-3" type="password" name="password2" id="password2" placeholder="Password" required />
         </div>
 
         <div class=" form-group col-sm-4">
@@ -49,13 +40,51 @@
             <input class="form-control shadow-sm col-xs-3" type="date" name="birthday" />
         </div>
 
-        <div class="form-group col">
-            <input class="btn btn-outline-primary small" type="submit" data-dismiss="modal">
+        <label class="form-group col-sm-4">PHONE NUMBER</label>
+
+        <div class=" form-group">
+            <div class=" form-inline col-sm-4">
+                <input class="form-control shadow-sm col-xs-3" type="text" name="PhoneNumber" id="PhoneNumber1" maxlength="3" pattern="[0-9]{3}" size="3" />-
+                <input class="form-control shadow-sm col-xs-3" type="text" name="PhoneNumber" id="PhoneNumber2" maxlength="3" pattern="[0-9]{3}" size="3" />-
+                <input class="form-control shadow-sm col-xs-3" type="text" name="PhoneNumber" id="PhoneNumber3" maxlength="4" pattern="[0-9]{4}" size="4" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-inline col-sm-4">
+                <input class="btn btn-outline-primary col-lg-5" type="submit" data-toggle="modal" data-target="#PasswordModal">
+                <input class="btn btn-outline-danger " type="reset" style="margin:4px">
+            </div>
         </div>
     </fieldset>
 </form>
 
+@*<script>
+    function Validate() {
 
+        var password = document.querySelector("#password").value;
+        var password2 = document.querySelector("#password2").value;
+
+        if (password === password2) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+
+<script>
+    function PhoneRecreate() {
+
+        var phone1 = document.querySelector("#phone1").value;
+        var phone2 = document.querySelector("#phone2").value;
+        var phone3 = document.querySelector("#phone3").value;
+
+        var PhoneFull = phone1 + phone2 + phone3
+        return PhoneFull;
+    }
+</script>*@
 
 
 

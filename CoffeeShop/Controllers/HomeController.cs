@@ -11,7 +11,7 @@ namespace CoffeeShop.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> _logger;   
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -23,18 +23,54 @@ namespace CoffeeShop.Controllers
             return View();
         }
 
-        public IActionResult Welcome(string First_Name, string Last_Name, string eMail, string Password)
+        public IActionResult Welcome(User user, string password2, string password)
         {
-            ViewBag.FirstName = First_Name;
-            ViewBag.LastName = Last_Name;
+            CoffeeShopContext db = new CoffeeShopContext();
+            //User ValidUser = new User();
+
+            if (password != password2)
+            {
+                return ModalAction();
+            }
+            else
+            {
+                db.Add(user);
+                db.SaveChanges();
+            }
             return View();
+
+        }
+
+        public IActionResult Login(string email, string password)
+        {
+            CoffeeShopContext db = new CoffeeShopContext();
+
+            User foundUser = new User();
+
+            TempData["Registered"] = false;
+
+            foreach (User valid in db.User)
+            {
+                if (email == valid.Email && password == valid.Password)
+                {
+                    foundUser = valid;
+                    TempData["Registered"] = true;
+                }
+            }
+            return View(foundUser);
+        }
+
+
+        public IActionResult ModalAction()
+        {
+            return View("ModalAction");
         }
 
         //need one action to load our Registration Page, also need a View
 
         public IActionResult Registration()
         {
-            
+
             return View();
         }
 

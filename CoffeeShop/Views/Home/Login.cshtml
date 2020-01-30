@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+    <form asp-controller="Home" asp-action="Login">
+
+        <div class=" form-group col-sm-4">
+            <label>EMAIL</label>
+            <input class="form-control shadow-sm col-xs-3" type="Email" name="Email" placeholder="Email" required />
+        </div>
+        <div class=" form-group col-sm-4">
+            <label>PASSWORD</label>
+            <input class="form-control shadow-sm col-xs-3" type="password" name="password" id="password" placeholder="Password" required />
+        </div>
+        <div class="form-group">
+            <div class="form-inline col-sm-4">
+                <input class="btn btn-outline-primary col-lg-5" type="submit" data-toggle="modal" data-target="#PasswordModal">
+                <input class="btn btn-outline-danger " type="reset" style="margin:4px">
+            </div>
+        </div>
+    </form>
