@@ -17,6 +17,7 @@ namespace CoffeeShop.Models
 
         public virtual DbSet<Items> Items { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserItemId> UserItemId { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -31,18 +32,26 @@ namespace CoffeeShop.Models
         {
             modelBuilder.Entity<Items>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.ItemId);
+
+                entity.Property(e => e.ItemId)
+                    .HasColumnName("ItemID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.CustomerDiscountPrice).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.Description)
                     .IsRequired()
                     .HasMaxLength(100);
 
-                entity.Property(e => e.ItemId).HasColumnName("ItemID");
+                entity.Property(e => e.RetailPrice).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.Sku)
                     .IsRequired()
                     .HasColumnName("SKU")
                     .HasMaxLength(50);
+
+                entity.Property(e => e.WholesalePrice).HasColumnType("decimal(18, 2)");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -50,6 +59,8 @@ namespace CoffeeShop.Models
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Birthday).HasColumnType("date");
+
+                entity.Property(e => e.CartFunds).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.Email).IsRequired();
 
@@ -68,6 +79,31 @@ namespace CoffeeShop.Models
                 entity.Property(e => e.PhoneNumer)
                     .HasMaxLength(10)
                     .IsFixedLength();
+            });
+
+            modelBuilder.Entity<UserItemId>(entity =>
+            {
+                entity.HasKey(e => e.UserItemId1);
+
+                entity.ToTable("UserItemID");
+
+                entity.Property(e => e.UserItemId1).HasColumnName("UserItemID");
+
+                entity.Property(e => e.ItemId).HasColumnName("ItemID");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+
+                entity.HasOne(d => d.Item)
+                    .WithMany(p => p.UserItemId)
+                    .HasForeignKey(d => d.ItemId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_UserItemID_Items");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserItemId)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_UserItemID_User");
             });
 
             OnModelCreatingPartial(modelBuilder);

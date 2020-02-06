@@ -153,7 +153,7 @@ C:\Users\Rhonswood\source\repos\CoffeeShop\CoffeeShop\bin\Debug\netcoreapp3.1\Mi
 C:\Users\Rhonswood\source\repos\CoffeeShop\CoffeeShop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Rhonswood\source\repos\CoffeeShop\CoffeeShop\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Rhonswood\source\repos\CoffeeShop\CoffeeShop\obj\Debug\netcoreapp3.1\CoffeeShop.csprojAssemblyReference.cache
-C:\Users\Rhonswood\source\repos\CoffeeShop\CoffeeShop\obj\Debug\netcoreapp3.1\CoffeeShop.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Rhonswood\source\repos\CoffeeShop\CoffeeShop\obj\Debug\netcoreapp3.1\CoffeeShop.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Rhonswood\source\repos\CoffeeShop\CoffeeShop\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
 C:\Users\Rhonswood\source\repos\CoffeeShop\CoffeeShop\obj\Debug\netcoreapp3.1\Razor\Views\Home\Shop.cshtml.g.cs
+C:\Users\Rhonswood\source\repos\CoffeeShop\CoffeeShop\obj\Debug\netcoreapp3.1\CoffeeShop.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Rhonswood\source\repos\CoffeeShop\CoffeeShop\obj\Debug\netcoreapp3.1\CoffeeShop.MvcApplicationPartsAssemblyInfo.cache

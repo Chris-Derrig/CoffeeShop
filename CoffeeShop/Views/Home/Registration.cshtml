@@ -6,28 +6,33 @@
 
 <h1>Registration</h1>
 
+@model User
 
 <form asp-controller="Home" asp-action="Welcome" onsubmit="return Validate(); return PhoneCreate()">
     <fieldset>
 
         <div class=" form-group col-sm-4">
-            <label>FIRST NAME</label>
-            <input class="form-control shadow-sm col-xs-3" type="text" name="FirstName" placeholder="First Name" required />
+            <label asp-for="FirstName">FIRST NAME</label>
+            <input asp-for="FirstName" class="form-control shadow-sm col-xs-3" type="text" name="FirstName" placeholder="First Name" required />
+            <span class="alert-danger" asp-validation-for="FirstName"></span>
         </div>
 
         <div class=" form-group col-sm-4">
-            <label>LAST NAME</label>
-            <input class="form-control shadow-sm col-xs-3" type="text" name="LastName" placeholder="Last Name" required />
+            <label asp-for="LastName">LAST NAME</label>
+            <input asp-for="LastName" class="form-control shadow-sm col-xs-3" type="text" name="LastName" placeholder="Last Name" required />
+            <span class="alert-danger" asp-validation-for="LastName"></span>
         </div>
 
         <div class=" form-group col-sm-4">
-            <label>EMAIL</label>
-            <input class="form-control shadow-sm col-xs-3" type="Email" name="Email" placeholder="Email" required />
+            <label asp-for="Email">EMAIL</label>
+            <input asp-for="Email" class="form-control shadow-sm col-xs-3" type="Email" name="Email" placeholder="Email" required />
+            <span class="alert-danger" asp-validation-for="Email"></span>
         </div>
 
         <div class=" form-group col-sm-4">
-            <label>PASSWORD</label>
-            <input class="form-control shadow-sm col-xs-3" type="password" name="password" id="password" placeholder="Password" required />
+            <label asp-for="Password">PASSWORD</label>
+            <input asp-for="Password" class ="form-control shadow-sm col-xs-3" type="password" name="password" id="password" placeholder="Password" required />
+            <span class="alert-danger" asp-validation-for="Password"></span>
         </div>
 
         <div class=" form-group col-sm-4">
@@ -59,32 +64,33 @@
     </fieldset>
 </form>
 
+
 @*<script>
-    function Validate() {
+        function Validate() {
 
-        var password = document.querySelector("#password").value;
-        var password2 = document.querySelector("#password2").value;
+            var password = document.querySelector("#password").value;
+            var password2 = document.querySelector("#password2").value;
 
-        if (password === password2) {
-            return true;
+            if (password === password2) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
+    </script>
+
+    <script>
+        function PhoneRecreate() {
+
+            var phone1 = document.querySelector("#phone1").value;
+            var phone2 = document.querySelector("#phone2").value;
+            var phone3 = document.querySelector("#phone3").value;
+
+            var PhoneFull = phone1 + phone2 + phone3
+            return PhoneFull;
         }
-    }
-</script>
-
-<script>
-    function PhoneRecreate() {
-
-        var phone1 = document.querySelector("#phone1").value;
-        var phone2 = document.querySelector("#phone2").value;
-        var phone3 = document.querySelector("#phone3").value;
-
-        var PhoneFull = phone1 + phone2 + phone3
-        return PhoneFull;
-    }
-</script>*@
+    </script>*@
 
 
 

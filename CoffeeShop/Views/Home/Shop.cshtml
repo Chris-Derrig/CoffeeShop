@@ -1,8 +1,31 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Shop";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Shop</h1>
+
+@model CoffeeShopContext
+<table class="table table-striped">
+    <tr>
+        <th style="text-align:left" class="align-middle"><h2>Item Description</h2></th>
+        <th style="text-align:center" class="align-middle"><h2>Item Price</h2></th>
+        <th><h2></h2></th>
+        <th><h2></h2></th>
+    </tr>
+
+    @foreach (Items items in Model.Items)
+    {
+        <tr>
+            <td style="text-align:left" class="align-middle">@items.Description</td>
+            <td style="text-align:center" class="align-middle">$@items.RetailPrice</td>
+            <td style="text-align:center" class="align-middle"><img src="https://media.timeout.com/images/100893385/630/472/image.jpg" width="60" height="60" /></td>
+            @if (TempData["Registered"] != null && (bool)TempData["Registered"])
+            {
+
+                <td style="text-align:center" class="align-middle"><button class="btn btn-outline-danger" onclick="location.href='@Url.Action("Purchase", "Home", new { price = items.RetailPrice })'">BUY</button></td>
+            }
+
+        </tr>
+    }
+</table>
 
